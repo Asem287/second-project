@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My PL project</title>
+    <title>Cara Clothes</title>
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css">
@@ -23,8 +23,13 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                <a href="#" id="close"><i class="fas fa-xmark"></i></a>
             </ul>
+         </div>
+         <div id="mobile">
+            <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+            <a id="bar" href=""><i  class="fas fa-outdent"></i></a>
          </div>
     </section>
 
@@ -367,17 +372,38 @@
             <h3>New Trendy Clothes</h3>
         </div>
     </section>
-
+    
     <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
             <h4>Sign Up For Newsletters</h4>
             <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
         </div>
         <div class="form">
-            <input type="text" placeholder="Your E-mail address">
-            <button class="normal">Sign Up</button>
+            <input  type="email" placeholder="Your E-mail address">
+            <button type="button" class="normal">Sign Up</button>
+            
         </div>
     </section>
+   
+    <script>
+        document.querySelector(".form button").addEventListener("click", function() {
+            let input = document.querySelector(".form input"); // Находим поле внутри .form
+            hasAt = true;
+            if(input.value.trim() === "" || input.value.includes("@gmail.com") || input.value.includes("@mail.com")){
+                hasAt = true;
+            }
+            else{
+                hasAt = false;
+            }
+            if (hasAt) {
+                alert("Email submitted successfully!"); // Если поле пустое
+            } else {
+                alert("You entered wrong data "); // Если что-то введено
+            }
+        });
+    </script>
+    
+    
 
     <footer class="section-p1">
         <div class="col">
@@ -409,7 +435,7 @@
 
         <div class="col">
             <h4>My Account</h4>
-            <a href="#">Sigh In</a>
+            <a href="#">Sign In</a>
             <a href="#">View Cart</a>
             <a href="#">My Wishlist</a>
             <a href="#">Track My Order</a>
